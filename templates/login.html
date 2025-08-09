@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Conta Azul Mais - Login</title>
-<link rel="icon" href="/static/img/favicon.ico">
+<link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
 
 <style>
   * {
@@ -107,7 +107,7 @@
   /* Lado direito */
   .right {
     flex: 2;
-    background: url('/static/img/imagem_lateral.png') no-repeat center center;
+    background: url('{{ url_for("static", filename="img/imagem_lateral.png") }}') no-repeat center center;
     background-size: cover;
   }
 </style>
@@ -116,7 +116,7 @@
   <div class="split">
     <!-- Lado esquerdo -->
     <div class="left">
-      <img src="/static/img/logo.png" class="logo" alt="ContaAzul">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" class="logo" alt="ContaAzul">
 
       {% if admin %}
         <h2>Login Administrativo</h2>
