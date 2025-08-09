@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Login Administrativo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f4f4; margin:0; padding:0; }
+    .login-panel {
+      max-width: 400px; margin: 100px auto; background: white; padding: 30px; border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    h2 { text-align: center; margin-bottom: 20px; }
+    label { display: block; margin-top: 10px; }
+    input[type="text"], input[type="password"] {
+      width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px;
+    }
+    button {
+      width: 100%; padding: 10px; margin-top: 20px; background: #3498db; color: white; border:none; border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover { background: #2980b9; }
+    .error { color: red; margin-top: 10px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="login-panel">
+    <h2>Login Administrativo</h2>
+    <form method="POST">
+      <label for="usuario">Usuário</label>
+      <input type="text" id="usuario" name="usuario" required autofocus>
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+    {% if erro %}
+      <p class="error">{{ erro }}</p>
+    {% endif %}
+  </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+/* login.css */
+*{box-sizing:border-box;font-family: Arial, Helvetica, sans-serif;}
+html,body{height:100%;margin:0}
+.split{display:flex;min-height:100vh}
+.left{flex:0 0 42%;background:#fff;padding:40px 50px;display:flex;flex-direction:column;align-items:flex-start}
+.right{flex:1;background-size:cover;background-position:center;color:#fff;display:flex;align-items:center;justify-content:center;padding:40px}
+.logo{width:180px;margin-bottom:20px}
+.left h2{margin-top:0;margin-bottom:18px;color:#222}
+.left form{width:100%;max-width:380px}
+.left label{display:block;margin-top:12px;margin-bottom:6px;color:#666;font-size:14px}
+.left input{width:100%;padding:10px;border:1px solid #ddd;border-radius:4px;font-size:14px}
+.btn{margin-top:18px;background:#1fa84b;color:#fff;border:none;padding:12px 18px;border-radius:6px;cursor:pointer;font-weight:600}
+.link-small{display:block;margin-top:12px;color:#2b7be3;text-decoration:none;font-size:14px}
+.promo{background: rgba(0,0,0,0.15);padding:30px;border-radius:8px;max-width:520px}
+.promo h3{margin:0 0 18px 0;color:#fff}
+.stats{display:flex;gap:18px;margin-bottom:18px}
+.stats div{background:rgba(255,255,255,0.08);padding:14px;border-radius:8px;text-align:center}
+.stats small{display:block;color:#e0f7e6}
+.qr-block{display:flex;align-items:center;gap:12px}
+.qr{width:96px;height:96px}
+.center-box{max-width:600px;margin:120px auto;padding:20px;border:1px solid #eee;border-radius:8px;text-align:center}
+.panel{max-width:900px;margin:40px auto;padding:20px}
+pre{white-space:pre-wrap;background:#fafafa;padding:14px;border:1px solid #eee}

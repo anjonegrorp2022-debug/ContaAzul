@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conta Azul Mais - Login</title>
+<link rel="icon" href="/static/img/favicon.ico">
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  .split {
+    display: flex;
+    height: 100vh;
+  }
+  /* Lado esquerdo */
+  .left {
+    flex: 1;
+    max-width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #fff;
+  }
+  .logo {
+    width: 180px;
+    margin-bottom: 30px;
+  }
+  h2 {
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+  .btn {
+    background-color: #28a745;
+    color: white;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+  }
+  .btn:hover {
+    background-color: #218838;
+  }
+  .link-small {
+    margin-top: 12px;
+    font-size: 0.9em;
+    color: #007bff;
+    text-decoration: none;
+  }
+  .link-small:hover {
+    text-decoration: underline;
+  }
+  .link-blue {
+    display: block;
+    margin-top: 15px;
+    color: #007bff;
+    font-size: 0.9em;
+    text-decoration: none;
+    text-align: center;
+  }
+  .link-blue:hover {
+    text-decoration: underline;
+  }
+  .small-text {
+    font-size: 0.85em;
+    color: #555;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .small-text a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  .small-text a:hover {
+    text-decoration: underline;
+  }
+  /* Lado direito */
+  .right {
+    flex: 2;
+    background: url('/static/img/imagem_lateral.png') no-repeat center center;
+    background-size: cover;
+  }
+</style>
+</head>
+<body>
+  <div class="split">
+    <!-- Lado esquerdo -->
+    <div class="left">
+      <img src="/static/img/logo.png" class="logo" alt="ContaAzul">
+
+      {% if admin %}
+        <h2>Login Administrativo</h2>
+        <form method="post" action="{{ url_for('painel') }}">
+          <label for="senha">Senha *</label>
+          <input id="senha" name="senha" type="password" required>
+          <button type="submit" class="btn">Entrar</button>
+        </form>
+      {% else %}
+        <h2>Informe seus dados abaixo</h2>
+        <form method="post" action="{{ url_for('login') }}">
+          <label for="email">E-mail *</label>
+          <input id="email" name="email" type="email" required>
+          
+          <label for="senha">Senha *</label>
+          <input id="senha" name="senha" type="password" required>
+          
+          <a class="link-small" href="#">Esqueci minha senha</a>
+          <button type="submit" class="btn">Entrar</button>
+        </form>
+
+        <a href="#" class="link-blue">Quero me cadastrar</a>
+
+        <p class="small-text">
+          Não atua com contabilidade nem com BPO Financeiro?<br>
+          <a href="#">Acesse Conta Azul Pro aqui</a>
+        </p>
+      {% endif %}
+
+    </div>
+
+    <!-- Lado direito -->
+    <div class="right"></div>
+  </div>
+</body>
+</html>

